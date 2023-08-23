@@ -11,8 +11,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
       - name: Build with Maven
         
         run: |
           cd ./Lernjournal-Projekt-main/micronaut-datenbank
           mvn clean install
+
+      - run: cd ./Lernjournal-Projekt-main/micronaut-datenbank
+      - run: npm install -g bats
+      - run: bats -v
