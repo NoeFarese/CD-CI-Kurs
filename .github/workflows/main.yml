@@ -1,0 +1,8 @@
+name: CD-CI-Kurs
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+on: push
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mvn clean install  
